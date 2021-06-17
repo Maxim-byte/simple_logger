@@ -35,12 +35,12 @@ namespace logger {
         fatal
     };
 
-    class Logger : private boost::noncopyable
+    class core : private boost::noncopyable
     {
         public:
-        Logger() = default;
+        core() = default;
 
-        ~Logger() {
+        ~core() {
             flush();
             _pool.join();
         }
@@ -138,15 +138,15 @@ namespace logger {
         }
     };
 
-    std::stringstream Logger::_buffer;
-    std::ofstream Logger::_stream;
-    std::string Logger::_path;
-    std::size_t Logger::_bufferSize = 1024;
-    boost::asio::thread_pool Logger::_pool(1);
-    boost::format Logger::_format("[%1%] [%2%] [%3%] %4% \n"); //"[%TimeStamp%] [%ThreadID%] [%Severity%] %Message% \n"
-    std::exception_ptr Logger::_exception;
+    std::stringstream core::_buffer;
+    std::ofstream core::_stream;
+    std::string core::_path;
+    std::size_t core::_bufferSize = 1024;
+    boost::asio::thread_pool core::_pool(1);
+    boost::format core::_format("[%1%] [%2%] [%3%] %4% \n"); //"[%TimeStamp%] [%ThreadID%] [%Severity%] %Message% \n"
+    std::exception_ptr core::_exception;
 
     namespace detail {
-        static Logger log;
+        static core log;
     }
 }

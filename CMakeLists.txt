@@ -11,7 +11,7 @@ INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
 
 add_executable(simple_logger main.cpp
-        Logger.hpp
+        core.hpp
         )
 
 TARGET_LINK_LIBRARIES( simple_logger LINK_PUBLIC ${Boost_LIBRARIES} )

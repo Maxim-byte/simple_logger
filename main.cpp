@@ -1,6 +1,6 @@
-#include "Logger.hpp"
+#include "core.hpp"
 
 int main() {
-    logger::Logger::setPath("/Users/gvgromov/CLionProjects/simple_logger/log.log");
+    logger::core::setPath("/Users/gvgromov/CLionProjects/simple_logger/log.log");
     return 0;
 }
